@@ -1,4 +1,4 @@
-import 'package:apex/src/models/standings/driver_standings.dart';
+import 'package:apex/src/models/standings/driver_standing.dart';
 import 'package:flutter/material.dart';
 
 class DriversStandings extends StatelessWidget {
@@ -21,8 +21,8 @@ class DriversStandings extends StatelessWidget {
 
               return ListTile(
                 leading: Text(
-                  driverStanding.position.toString(),
-                  style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.w600),
+                  driverStanding.position.toString().padLeft(2, '0'),
+                  style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w600),
                 ),
                 titleAlignment: ListTileTitleAlignment.titleHeight,
                 title: Row(
@@ -59,16 +59,15 @@ class DriversStandings extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Text(
-                      index > 0
-                          ? (driverStanding.points - prevPoints).toString()
-                          : '',
-                      style: TextStyle(
-                        fontSize: 12.0,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.red,
+                    if (index > 0)
+                      Text(
+                        (driverStanding.points - prevPoints).toString(),
+                        style: TextStyle(
+                          fontSize: 12.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.red,
+                        ),
                       ),
-                    ),
                   ],
                 ),
               );
