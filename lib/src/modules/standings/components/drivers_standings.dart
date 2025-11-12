@@ -1,6 +1,8 @@
 import 'package:apex/src/models/standings/driver_standing.dart';
 import 'package:flutter/material.dart';
 
+import '../widgets/driver_standing_list_tile.dart';
+
 class DriversStandings extends StatelessWidget {
   const DriversStandings({super.key, required this.driverStandings});
 
@@ -10,66 +12,21 @@ class DriversStandings extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        Container(),
         Expanded(
           child: ListView.separated(
-            separatorBuilder: (context, index) => SizedBox(height: 12.0),
+            padding: EdgeInsets.only(bottom: 16),
+            separatorBuilder: (context, index) => SizedBox(height: 8.0),
             itemBuilder: (context, index) {
               final driverStanding = driverStandings[index];
               final prevPoints = index > 0
                   ? driverStandings[index - 1].points
                   : 0;
 
-              return ListTile(
-                leading: Text(
-                  driverStanding.position.toString().padLeft(2, '0'),
-                  style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w600),
-                ),
-                titleAlignment: ListTileTitleAlignment.titleHeight,
-                title: Row(
-                  spacing: 16,
-                  children: [
-                    Expanded(
-                      child: Text(
-                        '${driverStanding.driverFirstName} ${driverStanding.driverLastName}',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 18.0,
-                          fontWeight: FontWeight.w900,
-                        ),
-                      ),
-                    ),
-                    Text(
-                      driverStanding.points.toString(),
-                      style: TextStyle(
-                        fontSize: 18.0,
-                        fontWeight: FontWeight.w900,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ],
-                ),
-                subtitle: Row(
-                  spacing: 16,
-                  children: [
-                    Expanded(
-                      child: Text(
-                        driverStanding.teamName,
-                        style: TextStyle(
-                          color: driverStanding.teamColor,
-                        ),
-                      ),
-                    ),
-                    if (index > 0)
-                      Text(
-                        (driverStanding.points - prevPoints).toString(),
-                        style: TextStyle(
-                          fontSize: 12.0,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.red,
-                        ),
-                      ),
-                  ],
-                ),
+              return DriverStandingListTile(
+                driverStanding: driverStanding,
+                prevPoints: prevPoints,
+                index: index,
               );
             },
             itemCount: driverStandings.length,

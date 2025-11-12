@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AppTheme {
-  static const fontFamily = 'GeistMono';
+  static final fontFamily = 'Montserrat';
 
   static ThemeData get dark => ThemeData(
     fontFamily: fontFamily,

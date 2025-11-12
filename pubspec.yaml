@@ -9,6 +9,7 @@ environment:
   sdk: ^3.9.2
 
 dependencies:
+  cached_network_image: ^3.4.1
   flutter:
     sdk: flutter
   html: ^0.15.6
@@ -20,6 +21,7 @@ dev_dependencies:
     sdk: flutter
 
   flutter_lints: ^5.0.0
+  google_fonts: ^6.3.2
 
 flutter:
   uses-material-design: true
@@ -28,14 +30,14 @@ flutter:
   #   - images/a_dot_burr.jpeg
 
   fonts:
-    - family: GeistMono
+    - family: Montserrat
       fonts:
-        - asset: fonts/GeistMono-Thin.ttf
-        - asset: fonts/GeistMono-ExtraLight.ttf
-        - asset: fonts/GeistMono-Light.ttf
-        - asset: fonts/GeistMono-Regular.ttf
-        - asset: fonts/GeistMono-Medium.ttf
-        - asset: fonts/GeistMono-SemiBold.ttf
-        - asset: fonts/GeistMono-Bold.ttf
-        - asset: fonts/GeistMono-ExtraBold.ttf
-        - asset: fonts/GeistMono-Black.ttf
+        - asset: fonts/Montserrat-Thin.ttf
+        - asset: fonts/Montserrat-ExtraLight.ttf
+        - asset: fonts/Montserrat-Light.ttf
+        - asset: fonts/Montserrat-Regular.ttf
+        - asset: fonts/Montserrat-Medium.ttf
+        - asset: fonts/Montserrat-SemiBold.ttf
+        - asset: fonts/Montserrat-Bold.ttf
+        - asset: fonts/Montserrat-ExtraBold.ttf
+        - asset: fonts/Montserrat-Black.ttf
